@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://suim73215x4c"]
 
 [ext_resource type="Script" uid="uid://ciulanw7dwdku" path="res://Scripts/player_body.gd" id="1_epb4y"]
+[ext_resource type="PackedScene" uid="uid://cx3h4nnqqpey5" path="res://Scenes/basic-level-model.tscn" id="2_yjxey"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vek3k"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vek3k"]
-size = Vector3(10, 1, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vek3k"]
-size = Vector3(10, 1, 10)
+[sub_resource type="Environment" id="Environment_vek3k"]
+background_mode = 1
+background_color = Color(0.5372549, 0.92941177, 0.9098039, 1)
+background_energy_multiplier = 0.38
 
 [node name="GameplayScene" type="Node3D" unique_id=1311578367]
 
@@ -21,14 +21,11 @@ script = ExtResource("1_epb4y")
 [node name="PlayerCollision" type="CollisionShape3D" parent="PlayerBody" unique_id=1805756820]
 shape = SubResource("CapsuleShape3D_vek3k")
 
-[node name="TempLevelGeometry" type="StaticBody3D" parent="." unique_id=1733584010]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="LevelCollision" type="CollisionShape3D" parent="TempLevelGeometry" unique_id=1018010755]
-shape = SubResource("BoxShape3D_vek3k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TempLevelGeometry/LevelCollision" unique_id=1681307152]
-mesh = SubResource("BoxMesh_vek3k")
-
 [node name="LevelLight" type="DirectionalLight3D" parent="." unique_id=92991282]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 48.122173, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=523786268]
+environment = SubResource("Environment_vek3k")
+
+[node name="basic-level-model" parent="." unique_id=508045397 instance=ExtResource("2_yjxey")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -5, -60)

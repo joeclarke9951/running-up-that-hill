@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b7recgw6laxl6"]
+
+[ext_resource type="Script" uid="uid://lctgcg4x0s7k" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D" unique_id=1787308694]
+script = ExtResource("1_28flt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1035249846]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D" unique_id=2108342457]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -64.0
+offset_right = 79.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuText" type="Label" parent="Camera2D/VBoxContainer" unique_id=1539553354]
+layout_mode = 2
+text = "Running Up That Hill"
+
+[node name="StartButton" type="Button" parent="Camera2D/VBoxContainer" unique_id=673543854]
+layout_mode = 2
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="Camera2D/VBoxContainer" unique_id=1664708018]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Camera2D/VBoxContainer" unique_id=797417472]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_down" from="Camera2D/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="Camera2D/VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="Camera2D/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

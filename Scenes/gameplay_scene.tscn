@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cx3h4nnqqpey5" path="res://Scenes/basic-level-model.tscn" id="2_yjxey"]
 [ext_resource type="Script" uid="uid://j82rdoo0l75k" path="res://Scripts/ui.gd" id="3_vb6wd"]
 [ext_resource type="Script" uid="uid://c5cvu8ois1il3" path="res://Scripts/death_volume.gd" id="5_qvqb5"]
-[ext_resource type="Script" uid="uid://co0cgvpoprust" path="res://Scenes/win_volume.gd" id="6_y365c"]
+[ext_resource type="Script" uid="uid://co0cgvpoprust" path="res://Scripts/win_volume.gd" id="6_y365c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vek3k"]
 

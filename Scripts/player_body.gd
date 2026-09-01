@@ -4,7 +4,6 @@ var gravity = -9.8
 @export var move_speed = 10
 @export var jump_speed = 5
 @export var sprint_speed = 18
-@export var look_sensitivity = 0.005
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -23,6 +22,6 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * look_sensitivity)
-		$PlayerCamera.rotate_x(-event.relative.y * look_sensitivity)
+		rotate_y(-event.relative.x * SettingsManager.look_sensitivity)
+		$PlayerCamera.rotate_x(-event.relative.y * SettingsManager.look_sensitivity)
 		$PlayerCamera.rotation.x = clampf($PlayerCamera.rotation.x, -deg_to_rad(70), deg_to_rad(70))

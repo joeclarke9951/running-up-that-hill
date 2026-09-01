@@ -14,3 +14,7 @@ func earn_point():
 func respawn(player:CharacterBody3D):
 	if player:
 		player.position = spawn_point
+
+func reset():
+	health = 10
+	score = 0

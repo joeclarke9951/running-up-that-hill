@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://suim73215x4c"]
 
 [ext_resource type="Script" uid="uid://ciulanw7dwdku" path="res://Scripts/player_body.gd" id="1_epb4y"]
+[ext_resource type="Theme" uid="uid://cfehw0i1g686w" path="res://Themes/game_theme.tres" id="2_m8blu"]
 [ext_resource type="PackedScene" uid="uid://cx3h4nnqqpey5" path="res://Scenes/basic-level-model.tscn" id="2_yjxey"]
+[ext_resource type="Script" uid="uid://j82rdoo0l75k" path="res://Scripts/ui.gd" id="3_vb6wd"]
+[ext_resource type="Script" uid="uid://c5cvu8ois1il3" path="res://Scripts/death_volume.gd" id="5_qvqb5"]
+[ext_resource type="Script" uid="uid://co0cgvpoprust" path="res://Scenes/win_volume.gd" id="6_y365c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vek3k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vek3k"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vek3k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vek3k"]
+size = Vector3(27.5, 5, 20)
 
 [node name="GameplayScene" type="Node3D" unique_id=1311578367]
 
@@ -13,12 +24,61 @@ script = ExtResource("1_epb4y")
 
 [node name="PlayerCamera" type="Camera3D" parent="PlayerBody" unique_id=1759968403]
 
+[node name="UI" type="Control" parent="PlayerBody/PlayerCamera" unique_id=1897246828]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_m8blu")
+script = ExtResource("3_vb6wd")
+
+[node name="HealthText" type="Label" parent="PlayerBody/PlayerCamera/UI" unique_id=112351251]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 63.0
+offset_bottom = 37.0
+text = "BLAH"
+
+[node name="ScoreText" type="Label" parent="PlayerBody/PlayerCamera/UI" unique_id=1844042022]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 50.0
+offset_right = -26.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "0"
+horizontal_alignment = 2
+
 [node name="PlayerCollision" type="CollisionShape3D" parent="PlayerBody" unique_id=1805756820]
 shape = SubResource("CapsuleShape3D_vek3k")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBody" unique_id=1886183876]
+mesh = SubResource("CapsuleMesh_vek3k")
+
 [node name="LevelLight" type="DirectionalLight3D" parent="." unique_id=92991282]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 48.122173, 0)
-light_color = Color(0.7411765, 0, 0, 1)
 
 [node name="basic-level-model" parent="." unique_id=508045397 instance=ExtResource("2_yjxey")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -5, -60)
+
+[node name="DeathVolume" type="Area3D" parent="." unique_id=1727734241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.271715, 0)
+script = ExtResource("5_qvqb5")
+
+[node name="DeathVolumeCollision" type="CollisionShape3D" parent="DeathVolume" unique_id=315372833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.627214, 0)
+shape = SubResource("WorldBoundaryShape3D_vek3k")
+
+[node name="WinVolume" type="Area3D" parent="." unique_id=487138917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0285273, 47.616966, -103.09323)
+script = ExtResource("6_y365c")
+
+[node name="WinVolumeCollision" type="CollisionShape3D" parent="WinVolume" unique_id=2007841332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82618713, 0)
+shape = SubResource("BoxShape3D_vek3k")
+
+[connection signal="body_entered" from="DeathVolume" to="DeathVolume" method="_on_body_entered"]
+[connection signal="body_entered" from="WinVolume" to="WinVolume" method="_on_body_entered"]

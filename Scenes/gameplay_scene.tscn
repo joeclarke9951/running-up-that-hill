@@ -5,11 +5,6 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vek3k"]
 
-[sub_resource type="Environment" id="Environment_vek3k"]
-background_mode = 1
-background_color = Color(0.5372549, 0.92941177, 0.9098039, 1)
-background_energy_multiplier = 0.38
-
 [node name="GameplayScene" type="Node3D" unique_id=1311578367]
 
 [node name="PlayerBody" type="CharacterBody3D" parent="." unique_id=978709272]
@@ -23,9 +18,7 @@ shape = SubResource("CapsuleShape3D_vek3k")
 
 [node name="LevelLight" type="DirectionalLight3D" parent="." unique_id=92991282]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 48.122173, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=523786268]
-environment = SubResource("Environment_vek3k")
+light_color = Color(0.7411765, 0, 0, 1)
 
 [node name="basic-level-model" parent="." unique_id=508045397 instance=ExtResource("2_yjxey")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -5, -60)

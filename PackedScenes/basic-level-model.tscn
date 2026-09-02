@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://cx3h4nnqqpey5"]
 
-[ext_resource type="PackedScene" uid="uid://dwje0mj77bl1n" path="res://Models/runninghill-basic-level.glb" id="1_odsdv"]
+[ext_resource type="PackedScene" uid="uid://dwje0mj77bl1n" path="res://Assets/Models/runninghill-basic-level.glb" id="1_odsdv"]
 
 [node name="basic-level-model" unique_id=508045397 instance=ExtResource("1_odsdv")]

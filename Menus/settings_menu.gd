@@ -4,7 +4,7 @@ func _ready() -> void:
 	$Camera2D/VBoxContainer/SensitivitySlider.value = SettingsManager.look_sensitivity
 
 func _on_back_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 
 
 func _on_sensitivity_slider_drag_ended(value_changed: bool) -> void:

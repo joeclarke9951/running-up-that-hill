@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwje0mj77bl1n"
-path="res://.godot/imported/runninghill-basic-level.glb-d2b0809d3d1c65e04946fed6cc9910fe.scn"
+path="res://.godot/imported/runninghill-basic-level.glb-8e04a716813c28291297339e22a1e821.scn"
 
 [deps]
 
-source_file="res://Models/runninghill-basic-level.glb"
-dest_files=["res://.godot/imported/runninghill-basic-level.glb-d2b0809d3d1c65e04946fed6cc9910fe.scn"]
+source_file="res://Assets/Models/runninghill-basic-level.glb"
+dest_files=["res://.godot/imported/runninghill-basic-level.glb-8e04a716813c28291297339e22a1e821.scn"]
 
 [params]
 

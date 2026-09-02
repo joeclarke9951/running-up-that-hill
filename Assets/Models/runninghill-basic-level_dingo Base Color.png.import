@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l2ed6lbaimkt"
-path.s3tc="res://.godot/imported/runninghill-basic-level_dingo Base Color.png-bd4868b2088eeb391399e49f071e9846.s3tc.ctex"
+path.s3tc="res://.godot/imported/runninghill-basic-level_dingo Base Color.png-e989d2fc556322492f6bac9738393d27.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Models/runninghill-basic-level_dingo Base Color.png"
-dest_files=["res://.godot/imported/runninghill-basic-level_dingo Base Color.png-bd4868b2088eeb391399e49f071e9846.s3tc.ctex"]
+source_file="res://Assets/Models/runninghill-basic-level_dingo Base Color.png"
+dest_files=["res://.godot/imported/runninghill-basic-level_dingo Base Color.png-e989d2fc556322492f6bac9738393d27.s3tc.ctex"]
 
 [params]
 

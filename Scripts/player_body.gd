@@ -5,6 +5,9 @@ var gravity = -9.8
 @export var jump_speed = 5
 @export var sprint_speed = 18
 
+@export var health = 100
+@export var score = 0
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -25,3 +28,17 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * SettingsManager.look_sensitivity)
 		$PlayerCamera.rotate_x(-event.relative.y * SettingsManager.look_sensitivity)
 		$PlayerCamera.rotation.x = clampf($PlayerCamera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
+###
+# Health and Score
+###
+
+func take_damage(amount:int):
+	health -= amount
+
+func earn_point():
+	score += 1
+
+func reset():
+	health = 100
+	score = 0

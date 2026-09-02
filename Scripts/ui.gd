@@ -14,3 +14,8 @@ func _process(_delta: float) -> void:
 	$HealthText.text = str(GameManager.players[0].health)
 	$ScoreText.text = str(GameManager.players[0].score)
 	
+
+
+func _on_game_timer_timeout() -> void:
+	MouseManager.release_mouse()
+	get_tree().change_scene_to_file("res://Scenes/end_menu.tscn")

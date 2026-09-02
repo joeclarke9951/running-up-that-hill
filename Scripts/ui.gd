@@ -4,8 +4,18 @@ var camera:Camera3D
 
 func _ready() -> void:
 	camera = get_parent() as Camera3D
+	$GameTimerText.position = Vector2(GameManager.viewport_width/2, 0)
+	$GameTimer.start(GameManager.round_time_seconds)
 
 
 func _process(_delta: float) -> void:
-	$HealthText.text = str(GameManager.health)
-	$ScoreText.text = str(GameManager.score)
+	$GameTimerText.text = str(roundi($GameTimer.time_left))
+	# TODO connect the UI to "the current player"
+	$HealthText.text = str(GameManager.players[0].health)
+	$ScoreText.text = str(GameManager.players[0].score)
+	
+
+
+func _on_game_timer_timeout() -> void:
+	MouseManager.release_mouse()
+	get_tree().change_scene_to_file("res://Scenes/end_menu.tscn")

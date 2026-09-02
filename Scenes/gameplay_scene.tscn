@@ -53,6 +53,25 @@ grow_horizontal = 0
 text = "0"
 horizontal_alignment = 2
 
+[node name="GameTimer" type="Timer" parent="PlayerBody/PlayerCamera/UI" unique_id=891518855]
+one_shot = true
+
+[node name="GameTimerText" type="Label" parent="PlayerBody/PlayerCamera/UI" unique_id=1354967061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 506.0
+offset_top = -20.0
+offset_right = 568.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+horizontal_alignment = 1
+
 [node name="PauseMenu" type="VBoxContainer" parent="PlayerBody/PlayerCamera" unique_id=1472082524]
 process_mode = 3
 visible = false
@@ -110,6 +129,7 @@ script = ExtResource("6_u0hpe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82618713, 0)
 shape = SubResource("BoxShape3D_vek3k")
 
+[connection signal="timeout" from="PlayerBody/PlayerCamera/UI/GameTimer" to="PlayerBody/PlayerCamera/UI" method="_on_game_timer_timeout"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/ResumeButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_resume_button_button_down"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/QuitButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_quit_button_button_down"]
 [connection signal="body_entered" from="DeathVolume" to="DeathVolume" method="_on_body_entered"]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dq72eko7h6gpu"]
 
-[ext_resource type="Script" uid="uid://cfxlkao1jyr7p" path="res://Scripts/end_menu.gd" id="1_bg38y"]
+[ext_resource type="Script" uid="uid://cfxlkao1jyr7p" path="res://Menus/end_menu.gd" id="1_xh4fv"]
 
 [node name="EndMenu" type="Node2D" unique_id=1588339771]
-script = ExtResource("1_bg38y")
+script = ExtResource("1_xh4fv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002336486]
 

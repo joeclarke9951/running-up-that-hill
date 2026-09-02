@@ -3,6 +3,11 @@ extends Node
 var spawn_point = Vector3(0,0.5,0)
 var players:Array[Player] = []
 
+var viewport_width = 1152
+var viewport_height = 648
+
+var round_time_seconds = 10
+
 func respawn(player:Player):
 	if player:
 		player.position = spawn_point

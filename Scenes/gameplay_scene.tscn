@@ -53,6 +53,25 @@ grow_horizontal = 0
 text = "0"
 horizontal_alignment = 2
 
+[node name="GameTimer" type="Timer" parent="PlayerBody/PlayerCamera/UI" unique_id=891518855]
+one_shot = true
+
+[node name="GameTimerText" type="Label" parent="PlayerBody/PlayerCamera/UI" unique_id=1354967061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 506.0
+offset_top = -20.0
+offset_right = 568.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+horizontal_alignment = 1
+
 [node name="PauseMenu" type="VBoxContainer" parent="PlayerBody/PlayerCamera" unique_id=1472082524]
 process_mode = 3
 visible = false

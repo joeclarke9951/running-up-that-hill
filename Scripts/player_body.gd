@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 var gravity = -9.8
 @export var move_speed = 10
@@ -8,7 +8,12 @@ var gravity = -9.8
 @export var health = 100
 @export var score = 0
 
+###
+# Overrides
+###
+
 func _ready() -> void:
+	GameManager.set_player(self, 0)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:

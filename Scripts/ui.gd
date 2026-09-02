@@ -7,5 +7,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	$HealthText.text = str(GameManager.health)
-	$ScoreText.text = str(GameManager.score)
+	# TODO connect the UI to "the current player"
+	$HealthText.text = str(GameManager.players[0].health)
+	$ScoreText.text = str(GameManager.players[0].score)

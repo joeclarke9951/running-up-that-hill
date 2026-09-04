@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx3h4nnqqpey5" path="res://PackedScenes/basic-level-model.tscn" id="4_uwf40"]
 [ext_resource type="Script" uid="uid://c5cvu8ois1il3" path="res://SceneElements/death_volume.gd" id="5_ykw5v"]
 [ext_resource type="Script" uid="uid://co0cgvpoprust" path="res://SceneElements/win_volume.gd" id="6_u0hpe"]
+[ext_resource type="Script" uid="uid://cst3duee3xyh8" path="res://Scenes/trash_spawn.gd" id="8_6ksri"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vek3k"]
 
@@ -129,8 +130,16 @@ script = ExtResource("6_u0hpe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82618713, 0)
 shape = SubResource("BoxShape3D_vek3k")
 
+[node name="TrashSpawn" type="Node3D" parent="." unique_id=567859624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 58.264153, -80)
+script = ExtResource("8_6ksri")
+
+[node name="TrashTimer" type="Timer" parent="TrashSpawn" unique_id=187674643]
+autostart = true
+
 [connection signal="timeout" from="PlayerBody/PlayerCamera/UI/GameTimer" to="PlayerBody/PlayerCamera/UI" method="_on_game_timer_timeout"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/ResumeButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_resume_button_button_down"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/QuitButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_quit_button_button_down"]
 [connection signal="body_entered" from="DeathVolume" to="DeathVolume" method="_on_body_entered"]
 [connection signal="body_entered" from="WinVolume" to="WinVolume" method="_on_body_entered"]
+[connection signal="timeout" from="TrashSpawn/TrashTimer" to="TrashSpawn" method="_on_trash_timer_timeout"]

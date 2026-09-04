@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody3D
 
-var gravity = -9.8
 @export var move_speed = 10
 @export var jump_speed = 5
 @export var sprint_speed = 18
@@ -17,7 +16,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity.y += GameManager.gravity * delta
 	var input = Input.get_vector("left","right","forward","backward")
 	var direction = transform.basis * Vector3(input.x, 0, input.y)
 	var speed = sprint_speed if Input.is_action_pressed("sprint") else move_speed

@@ -6,7 +6,8 @@ var players:Array[Player] = []
 var viewport_width = 1152
 var viewport_height = 648
 
-var round_time_seconds = 20
+var round_time_seconds = 200
+var gravity = -9.8
 
 func respawn(player:Player):
 	if player:

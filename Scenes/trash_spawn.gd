@@ -21,3 +21,7 @@ func spawn_trash(num:int):
 	t.rotation = Vector3(randf(),randf(),randf())
 	add_child(t)
 	t.apply_impulse(Vector3(0,launch_speed,0))
+
+
+func _on_trash_timer_timeout() -> void:
+	spawn_trash(0)

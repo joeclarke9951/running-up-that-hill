@@ -134,8 +134,12 @@ shape = SubResource("BoxShape3D_vek3k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 58.264153, -80)
 script = ExtResource("8_6ksri")
 
+[node name="TrashTimer" type="Timer" parent="TrashSpawn" unique_id=187674643]
+autostart = true
+
 [connection signal="timeout" from="PlayerBody/PlayerCamera/UI/GameTimer" to="PlayerBody/PlayerCamera/UI" method="_on_game_timer_timeout"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/ResumeButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_resume_button_button_down"]
 [connection signal="button_down" from="PlayerBody/PlayerCamera/PauseMenu/QuitButton" to="PlayerBody/PlayerCamera/PauseMenu" method="_on_quit_button_button_down"]
 [connection signal="body_entered" from="DeathVolume" to="DeathVolume" method="_on_body_entered"]
 [connection signal="body_entered" from="WinVolume" to="WinVolume" method="_on_body_entered"]
+[connection signal="timeout" from="TrashSpawn/TrashTimer" to="TrashSpawn" method="_on_trash_timer_timeout"]

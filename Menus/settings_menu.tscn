@@ -23,9 +23,23 @@ alignment = 1
 
 [node name="MouseSensitivity" type="Label" parent="Camera2D/VBoxContainer" unique_id=347772163]
 layout_mode = 2
-text = "Mouse Sensitivity:"
+text = "Mouse Look Sensitivity:"
 
-[node name="SensitivitySlider" type="HSlider" parent="Camera2D/VBoxContainer" unique_id=298659196]
+[node name="MouseSensitivitySlider" type="HSlider" parent="Camera2D/VBoxContainer" unique_id=298659196]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.005
+scrollable = false
+tick_count = 8
+ticks_on_borders = true
+
+[node name="ControllerSensitivity" type="Label" parent="Camera2D/VBoxContainer" unique_id=624440702]
+layout_mode = 2
+text = "Controller Look Sensitivity:"
+
+[node name="ControllerSensitivitySlider" type="HSlider" parent="Camera2D/VBoxContainer" unique_id=780808503]
 layout_mode = 2
 min_value = 0.001
 max_value = 0.01
@@ -40,5 +54,6 @@ layout_mode = 2
 text = "Back
 "
 
-[connection signal="drag_ended" from="Camera2D/VBoxContainer/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="Camera2D/VBoxContainer/MouseSensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="Camera2D/VBoxContainer/ControllerSensitivitySlider" to="." method="_on_controller_sensitivity_slider_drag_ended"]
 [connection signal="button_down" from="Camera2D/VBoxContainer/BackButton" to="." method="_on_back_button_button_down"]

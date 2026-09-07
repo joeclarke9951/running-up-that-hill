@@ -15,6 +15,15 @@ func _ready() -> void:
 	GameManager.set_player(self, 0)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _process(_delta: float) -> void:
+	# if controller is connected:
+	if len(Input.get_connected_joypads()) > 0:
+		var right_stick_horizontal = Input.get_axis("look_right", "look_left") * 10
+		var right_stick_vertical = Input.get_axis("look_up", "look_down") * 7.5
+		rotate_y(right_stick_horizontal * SettingsManager.controller_look_sensitivity)
+		$PlayerCamera.rotate_x(-right_stick_vertical * SettingsManager.controller_look_sensitivity)
+		$PlayerCamera.rotation.x = clampf($PlayerCamera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
 func _physics_process(delta: float) -> void:
 	velocity.y += GameManager.gravity * delta
 	var input = Input.get_vector("left","right","forward","backward")
@@ -32,6 +41,7 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * SettingsManager.look_sensitivity)
 		$PlayerCamera.rotate_x(-event.relative.y * SettingsManager.look_sensitivity)
 		$PlayerCamera.rotation.x = clampf($PlayerCamera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
 
 ###
 # Health and Score

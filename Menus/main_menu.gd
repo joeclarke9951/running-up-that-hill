@@ -1,5 +1,7 @@
 extends Node2D
 
+func _ready() -> void:
+	$Camera2D/VBoxContainer/StartButton.grab_focus.call_deferred()
 
 func _on_start_button_button_down() -> void:
 	get_tree().change_scene_to_file("res://Scenes/gameplay_scene.tscn")

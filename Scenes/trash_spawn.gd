@@ -11,9 +11,10 @@ var trash:Array[PackedScene] = [null] # save each of the trash models here and p
 func _ready() -> void:
 	trash[0] = preload("res://PackedScenes/basic-trash-object.tscn")
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):
-		spawn_trash(0)
+		for device in Input.get_connected_joypads():
+			print(Input.get_joy_name(device))
 
 func spawn_trash(num:int):
 	var t:RigidBody3D = trash[num].instantiate()

@@ -22,8 +22,11 @@ func spawn_trash(num:int):
 	t.position = Vector3(spawn_x, 10, spawn_z)
 	t.rotation = Vector3(randf(),randf(),randf())
 	add_child(t)
-	t.apply_impulse(Vector3(0,launch_speed,0))
+	var x_angle = randf_range(-0.75, 0.75)
+	var z_angle = randf_range(-0.2,0)
+	t.apply_impulse(Vector3(x_angle * launch_speed,launch_speed,z_angle * launch_speed))
 
 
 func _on_trash_timer_timeout() -> void:
 	spawn_trash(randi_range(0,3))
+	#spawn_trash(0)

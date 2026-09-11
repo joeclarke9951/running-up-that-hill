@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3lfu4qifr4ti"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://cyhwtedf5nmpb" path="res://Assets/Materials/trash_physics_material.tres" id="1_c1bjq"]
+[ext_resource type="PhysicsMaterial" uid="uid://sf42j2wcbs6" path="res://Assets/Materials/trash_cube_physics_material.tres" id="1_ba0wr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vek3k"]
 size = Vector3(5, 5, 5)
@@ -10,7 +10,7 @@ size = Vector3(5, 5, 5)
 
 [node name="BasicTrashCube" type="RigidBody3D" unique_id=1786963577]
 mass = 150.0
-physics_material_override = ExtResource("1_c1bjq")
+physics_material_override = ExtResource("1_ba0wr")
 
 [node name="BasicTrashCollision" type="CollisionShape3D" parent="." unique_id=1070921279]
 shape = SubResource("BoxShape3D_vek3k")

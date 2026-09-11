@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpwc5t6x41xsl"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://cyhwtedf5nmpb" path="res://Assets/Materials/trash_physics_material.tres" id="1_6kplo"]
+[ext_resource type="PhysicsMaterial" uid="uid://bc3wqii4vt338" path="res://Assets/Materials/trash_pole_physics_material.tres" id="1_6kplo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q74y8"]
 height = 10.0

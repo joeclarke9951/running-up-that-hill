@@ -14,14 +14,12 @@ func _ready() -> void:
 	trash[2] = preload("res://PackedScenes/basic-trash-cube.tscn")
 	trash[3] = preload("res://PackedScenes/basic-trash-pole.tscn")
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("debug"):
-		for device in Input.get_connected_joypads():
-			print(Input.get_joy_name(device))
 
 func spawn_trash(num:int):
 	var t:RigidBody3D = trash[num].instantiate()
-	t.position = Vector3(0, 10, -5)
+	var spawn_x = randf_range(-10, 10)
+	var spawn_z = randf_range(-10, 0)
+	t.position = Vector3(spawn_x, 10, spawn_z)
 	t.rotation = Vector3(randf(),randf(),randf())
 	add_child(t)
 	t.apply_impulse(Vector3(0,launch_speed,0))

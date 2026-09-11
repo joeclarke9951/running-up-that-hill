@@ -13,6 +13,12 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vek3k"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8j4q"]
+size = Vector3(30, 5, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vek3k"]
+size = Vector3(30, 5, 30)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vek3k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vek3k"]
@@ -113,6 +119,15 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.965
 
 [node name="basic-level-model" parent="." unique_id=508045397 instance=ExtResource("4_uwf40")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -5, -60)
+
+[node name="SpawnPlatform" type="StaticBody3D" parent="." unique_id=1484885893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPlatform" unique_id=1968878148]
+shape = SubResource("BoxShape3D_a8j4q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPlatform" unique_id=516297672]
+mesh = SubResource("BoxMesh_vek3k")
 
 [node name="DeathVolume" type="Area3D" parent="." unique_id=1727734241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.271715, 0)

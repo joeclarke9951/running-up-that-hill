@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://edgxusclakph"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://21cpwq25c51q" path="res://Assets/Materials/trash_ball_physics_material.tres" id="1_q74y8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0j6qb"]
+radius = 2.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_3uhny"]
+radius = 2.5
+height = 5.0
+
+[node name="BasicTrashBall" type="RigidBody3D" unique_id=1786963577]
+mass = 125.0
+physics_material_override = ExtResource("1_q74y8")
+
+[node name="BasicTrashCollision" type="CollisionShape3D" parent="." unique_id=1070921279]
+shape = SubResource("SphereShape3D_0j6qb")
+
+[node name="BasicTrashMesh" type="MeshInstance3D" parent="." unique_id=1644854024]
+mesh = SubResource("SphereMesh_3uhny")

@@ -6,23 +6,26 @@ extends Node3D
 	# calculate the range dynamically before the object appears?
 
 @export var launch_speed = -5000
-var trash:Array[PackedScene] = [null] # save each of the trash models here and pick one at random
+var trash:Array[PackedScene] = [null, null, null, null] # save each of the trash models here and pick one at random
 
 func _ready() -> void:
-	trash[0] = preload("res://PackedScenes/basic-trash-object.tscn")
+	trash[0] = preload("res://PackedScenes/basic-trash-ball.tscn")
+	trash[1] = preload("res://PackedScenes/basic-trash-barrel.tscn")
+	trash[2] = preload("res://PackedScenes/basic-trash-cube.tscn")
+	trash[3] = preload("res://PackedScenes/basic-trash-pole.tscn")
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("debug"):
-		for device in Input.get_connected_joypads():
-			print(Input.get_joy_name(device))
 
 func spawn_trash(num:int):
 	var t:RigidBody3D = trash[num].instantiate()
-	t.position = Vector3(0, 10, -5)
+	var spawn_x = randf_range(-10, 10)
+	var spawn_z = randf_range(-10, 0)
+	t.position = Vector3(spawn_x, 10, spawn_z)
 	t.rotation = Vector3(randf(),randf(),randf())
 	add_child(t)
-	t.apply_impulse(Vector3(0,launch_speed,0))
+	var x_angle = randf_range(-0.75, 0.75)
+	var z_angle = randf_range(-0.2,0)
+	t.apply_impulse(Vector3(x_angle * launch_speed,launch_speed,z_angle * launch_speed))
 
 
 func _on_trash_timer_timeout() -> void:
-	spawn_trash(0)
+	spawn_trash(randi_range(0,3))

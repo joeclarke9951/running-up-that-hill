@@ -6,10 +6,13 @@ extends Node3D
 	# calculate the range dynamically before the object appears?
 
 @export var launch_speed = -5000
-var trash:Array[PackedScene] = [null] # save each of the trash models here and pick one at random
+var trash:Array[PackedScene] = [null, null, null, null] # save each of the trash models here and pick one at random
 
 func _ready() -> void:
-	trash[0] = preload("res://PackedScenes/basic-trash-object.tscn")
+	trash[0] = preload("res://PackedScenes/basic-trash-ball.tscn")
+	trash[1] = preload("res://PackedScenes/basic-trash-barrel.tscn")
+	trash[2] = preload("res://PackedScenes/basic-trash-cube.tscn")
+	trash[3] = preload("res://PackedScenes/basic-trash-pole.tscn")
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):
@@ -25,4 +28,4 @@ func spawn_trash(num:int):
 
 
 func _on_trash_timer_timeout() -> void:
-	spawn_trash(0)
+	spawn_trash(randi_range(0,3))

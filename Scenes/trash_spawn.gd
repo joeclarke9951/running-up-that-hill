@@ -29,4 +29,3 @@ func spawn_trash(num:int):
 
 func _on_trash_timer_timeout() -> void:
 	spawn_trash(randi_range(0,3))
-	#spawn_trash(0)

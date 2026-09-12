@@ -1,6 +1,6 @@
 extends Node
 
-var spawn_point = Vector3(0,0.5,0)
+var spawn_point = Vector3(0,38.5,11)
 var players:Array[Player] = []
 
 var viewport_width = 1152
